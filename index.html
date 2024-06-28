@@ -4,9 +4,302 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rafee's Portfolio</title>
-    <link rel="stylesheet" href="static/css/style.css">
+    <!-- <link rel="stylesheet" href="static\css\style.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    body {
+        background-color: #FFDEAD !important; /* Light gray background color */
+        scroll-behavior: smooth; /* Enable smooth scrolling */
+        font-family: Arial, sans-serif;
+    }
+
+    section {
+        scroll-margin-top: 70px; /* Adjust according to your navbar height */
+    }
+
+    .dropdown-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.75s ease-out;
+        }
+    .dropdown-content.show {
+        max-height: 100vh; /* Adjust as necessary for your content */
+    }
+    .dropdown-btn {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Adjusted to space-between */
+        padding: 10px 20px; /* Add padding for better alignment */
+        background-color: #FFF8DC; /* Match the box background */
+        border
+        : 1px solid #e0e0e0; /* Optional: Add a border */
+        border-radius: 8px; /* Match the box border radius */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Match the box shadow */
+    }
+    .dropdown-btn .arrow {
+        margin-left: 10px;
+        transition: transform 0.75s ease;
+        color: black;
+    }
+    .dropdown-btn .arrow.down {
+        transform: rotate(-90deg);
+    }
+    .dropdown-btn .arrow.up {
+        transform: rotate(0deg);
+    }
+
+    .dropdown-btn h4 {
+        margin: 0;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center; /* Center content horizontally */
+    }
+    .left-align {
+        margin-left: -55%; /* Adjust as needed for your desired position */
+    }
+    .logo {
+        width: 50px; /* Adjust the size as needed */
+        height: auto;
+        margin-right: 10px; /* Space between logo and text */
+    }
+    .inline-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .left-content {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px; /* Add padding inside the box */
+        background-color: #FFF8DC; /* Set the background color */
+        border-radius: 8px; /* Optional: Add rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Add a subtle shadow */
+        max-width: 75%; /* Set maximum width to 75% of the container */
+    }
+    .header-left, .header-right {
+        display: flex;
+        align-items: flex-start;
+    }
+    .header-right {
+        flex-shrink: 0; /* Prevents the date from shrinking */
+        width: auto; /* Allow the width to adjust */
+    }
+    .header-right-column {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-end; /* Align items to the right */
+    }
+    .date, .location {
+        white-space: nowrap; /* Prevent wrapping */
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; /* Allow the content to grow */
+    }
+    .blocks {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align blocks to the left */
+        margin-top: 10px; /* Add some margin to separate from the date */
+    }
+    .custom-nav-link {
+        color: lightgray !important; /* Change to your desired color */
+    }
+    .custom-nav-link:hover {
+        color: #FFDEAD !important; /* Change to your desired hover color */
+    }
+    .custom-nav-link.active {
+        color: #FFDEAD !important;
+    }
+    .social-button {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Default shadow */
+    }
+
+    .social-button:hover {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+    }
+
+    .social-button.linkedin {
+        background-color: #0077B5; /* LinkedIn blue */
+    }
+
+    .social-button.linkedin:hover {
+        background-color: #005582; /* Darker LinkedIn blue */
+    }
+
+    .social-button.github {
+        background-color: #333; /* GitHub black */
+    }
+
+    .social-button.github:hover {
+        background-color: #000000; /* Darker GitHub black */
+    }
+
+    .social-button.download {
+        background-color: #28a745; /* Green */
+    }
+
+    .social-button.download:hover {
+        background-color: #218838; /* Darker green */
+    }
+
+    .social-button i {
+        margin-right: 8px;
+    }
+
+    .profile-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 25px auto;
+    }
+
+    .profile-text {
+        margin-right: 20px; /* Space between text and image */
+    }
+
+    .profile-image {
+        width: 200px; /* Adjust width as needed */
+        height: auto;
+        border-radius: 10%;
+        border: 5px solid black;
+    }
+    .container {
+        text-align: center;
+    }
+
+    .project-details {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .project-box {
+        background-color: #FFF8DC; 
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        width: 75%; 
+        text-align: left;
+    }
+
+    .embed-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 600px;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        background: #000;
+        border-radius: 8px;
+    }
+    .embed-video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Space between buttons */
+        margin-top: 10px;
+    }
+
+    .download-button, .view-github, .view-budgeme, .view-sprachen {
+        margin-top: 10px;
+    }
+
+    .github-button {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        background-color: #333; /* GitHub black */
+    }
+
+
+    .sprachen-button {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        /* font-weight: bold;  */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease; /* Smooth transition */
+        background-image: linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+    }
+
+    .sprachen-button:hover {
+        background-image: linear-gradient(45deg, #b25c66 15%, #443769 85%); 
+    }
+
+    .budgeme-button {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: black;
+        font:bold;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        background-color: #fcc304; 
+    }
+
+    .budgeme-button:hover {
+        background-color: #e8ac04;
+    }
+    
+
+    .github-button:hover {
+        background-color: #24292e; /* Darker GitHub black */
+    }
+
+    .github-button i {
+        margin-right: 8px;
+    }
+
+    .download-button a {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        font:bold;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        background-color: #468aa0; /* Blue for download */
+    }
+
+    .download-button a:hover {
+        background-color: #305d6e; /* Darker blue */
+    }
+    </style>   
   </head>
   <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
@@ -128,13 +421,17 @@
                         <span id="project1Arrow" class="arrow down">&#x25BC;</span>
                     </div>
                     <div id="project1Content" class="dropdown-content mt-3">
-                        <p>This project aims to develop a system monitor similar to the Windows Task Manager or Linux System Monitor. The project utilizes the `/proc` filesystem and creating a graphical user interface to display relevant system information.</p>
-                        <p>1. Basic System Information: Displays OS release, kernel version, memory, processor version, and disk storage. <br>
-                        2. Process Information: Includes a table to display all running processes, with options for different views and refresh capabilities.<br>
-                        3. Process-specific Actions: Allows for actions like stopping, continuing, or killing processes, and listing memory maps and open files.<br>
-                        4. Detailed View: Shows detailed information for individual processes including state, memory usage, CPU time, etc.<br>
-                        5. Graphs: Tracks and displays graphs for CPU usage, memory and swap usage, and network usage.<br>
-                        6. File System: Shows usage for each mount point.
+                        <p>
+                            This project aims to develop a system monitor similar to the Windows Task Manager or Linux System Monitor. 
+                            The project utilizes the `/proc` filesystem and creating a graphical user interface to display relevant system information.
+                        </p>
+                        <p>
+                            1. Basic System Information: Displays OS release, kernel version, memory, processor version, and disk storage. <br>
+                            2. Process Information: Includes a table to display all running processes, with options for different views and refresh capabilities.<br>
+                            3. Process-specific Actions: Allows for actions like stopping, continuing, or killing processes, and listing memory maps and open files.<br>
+                            4. Detailed View: Shows detailed information for individual processes including state, memory usage, CPU time, etc.<br>
+                            5. Graphs: Tracks and displays graphs for CPU usage, memory and swap usage, and network usage.<br>
+                            6. File System: Shows usage for each mount point.
                     </p>
     
                     <div class="button-container">
@@ -152,7 +449,11 @@
                         <span id="project2Arrow" class="arrow down">&#x25BC;</span>
                     </div>
                     <div id="project2Content" class="dropdown-content mt-3">
-                        <p>I developed a custom shell interpreter that replicates the functionalities of widely used shells like Bash. Leveraging Lex for lexical analyzing and Yacc for parsing, it supports complex command syntax and advanced features. The shell handles wildcards, environment variables, and subshells, zombie processes, and command line argument if-statements.</p>
+                        <p>
+                            I developed a custom shell interpreter that replicates the functionalities of widely used shells like Bash. 
+                            Leveraging Lex for lexical analyzing and Yacc for parsing, it supports complex command syntax and advanced features. 
+                            The shell handles wildcards, environment variables, and subshells, zombie processes, and command line argument if-statements.
+                        </p>
                         
                         <div class="button-container">
                             <div class="view-github">
@@ -188,11 +489,11 @@
     
                         <div class="button-container">
                             <!-- Download Button NOT WORKING RN -->
-                            <!-- <div class="download-button">
+                            <div class="download-button">
                                 <a href="https://drive.google.com/uc?export=download&id=1ymxqV5M_TBx9yaR-8SpXpEkeL_L8U1Df" target="_blank">
                                     Download Hangman
                                 </a>
-                            </div> -->
+                            </div>
     
                             <!-- View on GitHub Button -->
                             <div class="view-github">
@@ -227,10 +528,8 @@
     
                         <div class="button-container">
                             <!-- Website Button -->
-                            <div class="go-to-website-button">
-                                <a href="https://rafifi7.github.io/BudgeMe.github.io/" target="_blank">
-                                    Go To BudgeMe 
-                                </a>
+                            <div class="view-github">
+                                <a href="https://rafifi7.github.io/BudgeMe.github.io/" target="_blank" class="budgeme-button">Go To BudgeMe</a>
                             </div>
     
                             <div class="view-github">
@@ -239,6 +538,7 @@
                                 </a>
                             </div>
                         </div>
+
                         <div class="button-container">
                         <p>Created using HTML, CSS + Bootstrap, and Javascript.</p>
                         </div>
@@ -248,7 +548,40 @@
                     </div>
                     <!-- End of BudgeMe -->
     
-                    <!-- Project 5 -->
+                    <!-- Sprachen Karte  -->
+                    <div class="dropdown-btn mt-3" onclick="toggleDropdown('project5Content', 'project5Arrow')">
+                        <h4>Sprachen Karte Website</h4>
+                        <span id="project5Arrow" class="arrow down">&#x25BC;</span>
+                    </div>
+                    <div id="project5Content" class="dropdown-content mt-3">
+                        <p>"Sprachen Karte", which means language map in German, is an Interactive Language Diversity Visualization Tool. 
+                            It generates a website featuring an interactive map complete with pointers. You can zoom in, move around, and toggle various features on the map.
+                             It encompasses every known language, including those that are extinct or endangered, along with outlines of their family origins and numerous other captivating features.
+                            </p>
+
+                        <div class="button-container">
+                            <!-- Website Button -->
+                            <div class="view-github">
+                                <a href="https://karim-sharkawy.github.io/SprachenKarte/" target="_blank" class="sprachen-button"> Go To Sprachen Karte </a>
+                            </div>
+    
+                            <div class="view-github">
+                                <a href="https://github.com/karim-sharkawy/SprachenKarte" target="_blank" class="github-button">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <p>Created using HTML, CSS + Bootstrap, and Javascript.</p>
+                        </div>
+                        <iframe src="https://karim-sharkawy.github.io/SprachenKarte/" width="100%" height="600px" style="border:none;"></iframe>
+
+
+                    </div>
+                    <!-- End of Sprachen Karte -->
+
+
+                    <!-- Project 6 -->
                     <!-- <div class="dropdown-btn mt-3" onclick="toggleDropdown('project5Content', 'project5Arrow')">
                         <h4>Project 5</h4>
                         <span id="project5Arrow" class="arrow down">&#x25BC;</span>
